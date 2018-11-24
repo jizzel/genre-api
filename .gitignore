@@ -12,6 +12,6 @@ node_modules/
 jspm_packages/
 
 #webstorm
-.idea
+.idea/
 
 # End of https://www.gitignore.io/api/node,windows,webstorm
