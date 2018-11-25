@@ -5,6 +5,7 @@ const express   = require('express'),
     debug       = require('debug')('app:expressApp'),
     port        = process.env.PORT || 5000,
     genres      = require('./routes/genres'),
+    customers   = require('./routes/customer'),
     mongoose    = require('mongoose');
 
 mongoose.connect('mongodb://localhost/genre-base', {useNewUrlParser: true})
@@ -17,6 +18,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 app.use('/api/v1/genres', genres);
+app.use('/api/v1/customers', customers);
 app.get('/', (req,res) => {
     res.send('Welcome to Vidly!')
 });
