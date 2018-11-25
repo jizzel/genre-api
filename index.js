@@ -7,16 +7,16 @@ const express   = require('express'),
     genres      = require('./routes/genres'),
     mongoose    = require('mongoose');
 
-mongoose.connect('mongodb://localhost:vidly', {useNewUrlParser: true})
-    .then((message) => console.log('MongoDB: ',message))
-    .catch((err)=> console.log('Error: ', err));
+mongoose.connect('mongodb://localhost/genre-base', {useNewUrlParser: true})
+    .then(() => console.log('MongoDB successfully connected'))
+    .catch((err)=> console.log('Failed to connect o mongoDb: ', err));
 
 
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-app.use('/api/genres', genres);
+app.use('/api/v1/genres', genres);
 app.get('/', (req,res) => {
     res.send('Welcome to Vidly!')
 });
